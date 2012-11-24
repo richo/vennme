@@ -24,9 +24,6 @@
           [:label "Size of overlap"
             [:input {:type "text" :name "ab"}]
            ]
-          [:label "Label for overlap"
-            [:input {:type "text" :name "ablabel"}]
-           ]
             [:input {:type "submit" :name "submit"}]
         ]
         )
