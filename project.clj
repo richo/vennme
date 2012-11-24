@@ -3,4 +3,5 @@
   :dependencies
     [[org.clojure/clojure "1.4.0"]
      [noir "1.2.2"]
-     [com.googlecode.charts4j/charts4j "1.3"]])
+     [com.googlecode.charts4j/charts4j "1.3"]
+     ])
