@@ -1,7 +1,7 @@
 (ns vennme.web
   (:use noir.core)
   (:require [noir.server :as server])
-  ; (:require com.googlecode.charts4j [GCharts :as GCharts])
+  (:require com.googlecode.charts4j [GCharts :as GCharts])
   )
 
 (defpage "/" []
