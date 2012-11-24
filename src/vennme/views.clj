@@ -12,11 +12,20 @@
           [:label "Size of left circle"
             [:input {:type "text" :name "a"}]
            ]
+          [:label "Label for left circle"
+            [:input {:type "text" :name "alabel"}]
+           ]
           [:label "Size of right circle"
             [:input {:type "text" :name "b"}]
            ]
+          [:label "Label for right circle"
+            [:input {:type "text" :name "blabel"}]
+           ]
           [:label "Size of overlap"
             [:input {:type "text" :name "ab"}]
+           ]
+          [:label "Label for overlap"
+            [:input {:type "text" :name "ablabel"}]
            ]
             [:input {:type "submit" :name "submit"}]
         ]

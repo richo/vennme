@@ -24,12 +24,13 @@
      0
      ))
 
-(defpage "/up" {:keys [a b ab]}
+(defpage "/up" {:keys [a b ab alabel blabel ablabel]}
          (let [chart (venn-diagram a b ab)]
+           (. chart setSize 500 500)
+           (. chart setCircleLegends alabel blabel "")
            (views/up (. chart toURLString))
            )
          )
-
 
 (defn -main []
   (let [port (Integer/parseInt (System/getenv "PORT"))]
