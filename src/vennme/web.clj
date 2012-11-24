@@ -1,13 +1,16 @@
 (ns vennme.web
-  (:use ring.adapter.jetty
-   :use com.googlecode.charts4j))
+  (:use noir.core)
+  (:require [noir.server :as server])
+  ; (:require com.googlecode.charts4j [GCharts :as GCharts])
+  )
 
-(defn app [req]
-  {:status 200
-   :headers {"Content-Type" "text/plain"}
-   :body "Test string\n"})
+(defpage "/" []
+         "This is totes my index page. Totes")
+
+(defpage "/chart" []
+         )
+
 
 (defn -main []
   (let [port (Integer/parseInt (System/getenv "PORT"))]
-    (run-jetty app {:port port})))
-
+    (server/start port)))
