@@ -1,5 +1,6 @@
 (ns vennme.web
-  (:use ring.adapter.jetty))
+  (:use ring.adapter.jetty
+   :use com.googlecode.charts4j))
 
 (defn app [req]
   {:status 200
