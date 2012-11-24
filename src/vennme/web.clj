@@ -1,5 +1,5 @@
 (ns vennme.web
-  (:use ring.adaptor.jetty))
+  (:use ring.adapter.jetty))
 
 (defn app [req]
   {:status 200
