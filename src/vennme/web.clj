@@ -7,7 +7,7 @@
   )
 
 (defpage "/" []
-         "This is totes my index page. Totes")
+         (views/index))
 
 (defn toInt [i]
   (Integer/parseInt i))
