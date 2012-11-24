@@ -1,4 +1,4 @@
-(ns demo.web
+(ns vennme.web
   (:use ring.adaptor.jetty))
 
 (defn app [req]
