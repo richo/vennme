@@ -2,6 +2,7 @@
   (:use noir.core)
   ; (:use com.googlecode.charts4j)
   (:require [noir.server :as server])
+  (:require [vennme.views :as views])
   (:import [com.googlecode.charts4j GCharts Plots Data])
   )
 
@@ -25,7 +26,7 @@
 
 (defpage "/up" {:keys [a b ab]}
          (let [chart (venn-diagram a b ab)]
-           (. chart toURLString)
+           (views/up (. chart toURLString))
            )
          )
 
