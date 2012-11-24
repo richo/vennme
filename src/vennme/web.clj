@@ -8,20 +8,23 @@
 (defpage "/" []
          "This is totes my index page. Totes")
 
-(defn venn-diagram []
+(defn toInt [i]
+  (Integer/parseInt i))
+
+(defn venn-diagram [a b ab]
   ; (. GCharts newVennDiagram 100 80 60 30 30 30 10))
   (. GCharts newVennDiagram
-     100 ; Size of first circle
-     100 ; Size of second circle
-     0   ; Size of third circle, 0 for no circle
-     25  ; Size of overlapping region
-     0 ; Overlaps between 3 circled charts, all zero for us
+     (toInt a)    ; Size of first circle
+     (toInt b)    ; Size of second circle
+     0            ; Size of third circle, 0 for no circle
+     (toInt ab)   ; Size of overlapping region
+     0            ; Overlaps between 3 circled charts, all zero for us
      0
      0
      ))
 
-(defpage "/up" []
-         (let [chart (venn-diagram)]
+(defpage "/up" {:keys [a b ab]}
+         (let [chart (venn-diagram a b ab)]
            (. chart toURLString)
            )
          )
