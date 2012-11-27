@@ -6,6 +6,10 @@
   (:import [com.googlecode.charts4j GCharts Plots Data])
   )
 
+
+(def engine-name 'google-charts)
+; (def engine-name 'native)
+
 (defpage "/" []
          (views/index))
 
@@ -22,6 +26,7 @@
     )
   )
 
+
 (defn venn-diagram [a b ab]
   ; (. GCharts newVennDiagram 100 80 60 30 30 30 10))
     (let [[na nb nab] (normalize (toInt a) (toInt b) (toInt ab))]
@@ -37,12 +42,26 @@
       )
     )
 
-(defpage "/up" {:keys [a b ab alabel blabel ablabel]}
+(defn native-venn-diagram []
+  ())
+
+
+(defn google-venn-diagram [a b ab alabel blabel ablabel]
          (let [chart (venn-diagram a b ab)]
            (. chart setSize 500 500)
            (. chart setCircleLegends alabel blabel "")
            (views/up (. chart toURLString))
            )
+  )
+
+(def engine
+  (cond
+     (= engine-name 'google-charts) google-venn-diagram
+     (= engine-name 'native) native-venn-diagram
+     ))
+
+(defpage "/up" {:keys [a b ab alabel blabel ablabel]}
+         (apply engine [a b ab alabel blabel ablabel])
          )
 
 (defn -main []
