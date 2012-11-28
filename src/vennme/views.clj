@@ -3,7 +3,7 @@
   )
 
 (defn up [url]
-  (html [:img {:src url :width "100%" :height "100%"}])
+  (html [:img {:src url :width "500" :height "500"}])
   )
 
 (defn index []
