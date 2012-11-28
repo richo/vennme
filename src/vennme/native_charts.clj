@@ -1,8 +1,9 @@
 (ns vennme.native-charts
   (:import [java.awt.image BufferedImage])
   (:import [java.awt.geom Ellipse2D])
-  (:import [java.io StringWriter])
   (:import [javax.imageio ImageIO])
+  (:import [java.io ByteArrayOutputStream])
+  (:import [java.io ByteArrayInputStream])
   )
 
 (def img-width 1024)
@@ -17,9 +18,9 @@
 (defn native-venn-diagram [a b ab alabel blabel ablabel]
   (let [img (new-buffered-image)
         g   (. img createGraphics)
-        output (new StringWriter)]
+        output (new ByteArrayOutputStream)]
     (. g draw (new-ellipse 50 50 25 25))
-    (. ImageIO write img "png" output)
-    output
+    (javax.imageio.ImageIO/write img "png" output)
+    (new ByteArrayInputStream (.toByteArray output))
     )
   )
