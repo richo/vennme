@@ -20,7 +20,7 @@
         g   (. img createGraphics)
         output (new ByteArrayOutputStream)]
     (. g draw (new-ellipse 50 50 25 25))
-    (javax.imageio.ImageIO/write img "png" output)
+    (ImageIO/write img "png" output)
     (new ByteArrayInputStream (.toByteArray output))
     )
   )
