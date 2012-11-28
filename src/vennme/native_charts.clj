@@ -45,15 +45,16 @@
       (. g draw right-circle)
       (. g setColor color2)
       (. g fill right-circle)
-
-      (. g setColor Color/BLACK)
-      (if (not (nil? alabel))
-        (. g drawString alabel (- (+ (/ img-width 2) iab) (* ia 2)) (/ img-height 2)))
-      (if (not (nil? blabel))
-        (. g drawString blabel (+ (/ img-width 2) iab) (/ img-height 2)))
-      (if (not (nil? ablabel))
-        (. g drawString ablabel (- (/ img-width 2) iab) (/ img-height 2)))
       )
+
+    (. g setColor Color/BLACK)
+    (if (not (nil? alabel))
+      (. g drawString alabel (- (+ (/ img-width 2) iab) (* ia 2)) (/ img-height 2)))
+    (if (not (nil? blabel))
+      (. g drawString blabel (+ (/ img-width 2) iab) (/ img-height 2)))
+    (if (not (nil? ablabel))
+      (. g drawString ablabel (- (/ img-width 2) iab) (/ img-height 2)))
+
 
     (ImageIO/write img "png" output)
     (new ByteArrayInputStream (.toByteArray output))
